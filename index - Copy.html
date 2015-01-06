@@ -1,37 +1,13 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <html>
- <head>
-  <meta charset="UTF-8">
-  <title>分页示例</title>
-  <style type="text/css"> 
-/*a:link,a:visited,a:hover,.current,#info{ 
-    border:1px solid #DDD; 
-    background:#F2F2F2; 
-    display:inline-block; 
-    margin:1px; 
-    text-decoration:none; 
-    font-size:12px; 
-    width:15px; 
-    height:15px; 
-    text-align:center; 
-    line-height:15px; 
-    color:#AAA; 
-    padding:1px 2px; 
-} 
-a:hover{ 
-    border:1px solid #E5E5E5; 
-    background:#F9F9F9; 
-} 
-.current{ 
-    border:1px solid #83E7E4; 
-    background:#DFF9F8; 
-    margin:1px; 
-    color:#27CBa7; 
-} 
-#info{ 
-    width:auto; 
-} 
-*/
+
+<head>
+	<title>MaoBo</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Description" />
+	<link rel="stylesheet" href="Stylesheet Location" type="text/css" />
+	
+<style type="text/css"> 
 /*全局分页*/
 .pages {overflow:hidden;text-align:center;padding:32px 0 0;font-size:12px;}
 .pages a {display:inline-block;color:#282828;border:1px solid #eee;padding:10px 14px;margin:0 5px;}
@@ -43,13 +19,77 @@ a:hover{
 .pages  .last_off .arrow_left{border-right:5px solid #cbcbcb;}
 .pages  .next_on .arrow_right{ border-left:5px solid #282828;}
 .pages  .next_off .arrow_right{ border-left:5px solid #cbcbcb;}
-
 </style> 
- </head>
-<head> 
-<title>JS静态分页程序</title> 
+	
+	
+</head>
 
-<body> 
+<body>
+<center>
+<FORM action=http://www.baidu.com/baidu target=_blank>
+<TABLE bgColor=#ffffff>
+<TBODY><TR><TD><INPUT type=hidden value=baidu name=tn> <A href="http://www.baidu.com/"><IMG alt=Baidu src="http://img.baidu.com/img/logo-80px.gif" w align=bottom border=0></A>
+<INPUT size=30 name=word> <INPUT type=submit value=百度搜索>
+</TD></TR></TBODY></TABLE></FORM>
+
+
+<FORM method=GET action="http://www.google.com/search" target="_blank">
+<TABLE bgcolor="#FFFFFF" style="border:none;"><tr><td>
+<A HREF="http://www.google.com/intl/zh-CN/" target="_blank">
+<IMG SRC="http://www.google.com/logos/Logo_40wht.gif"
+border="0" ALT="Google" align="absmiddle"></A>
+<INPUT TYPE=text name=q size=31 maxlength=255 value="">
+<INPUT TYPE=hidden name=hl  value=zh-CN>
+<INPUT type=submit name=btnG  value="Google搜索">
+</td></tr></TABLE>
+</FORM>
+<br><br><br>
+<div id="mynav">
+<table width="312" border="0" cellspacing="2" cellpadding="2">
+  <tbody>
+    <tr>
+      <th width="52" scope="col"><a href="http://www.dangdang.com/" target="_blank">当当网</a></th>
+      <th width="40" scope="col"><a href="http://www.jd.com/" target="_blank">京东</a></th>
+      <th width="50" scope="col"><a href="http://www.taobao.com/" target="_blank">淘宝</a></th>
+      <th width="51" scope="col"><a href="http://www.amazon.cn/" target="_blank">亚马逊</a></th>
+      <th width="52" scope="col"><a href="http://www.vip.com/" target="_blank">唯品会</a></th>
+      <th width="29" scope="col">&nbsp;</th>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    </tbody>
+</table>
+</div>
+</center>
+
+<button class="btn1">Hide</button>
+<button class="btn2">Show</button>
+
+<br>
+
+
 
 <div id="content">
 </div>
@@ -78,7 +118,7 @@ function gotopage(target)
     setpage(); 
     //reloadpage(target);    //调用显示页面函数显示第几页,这个功能是用在页面内容用ajax载入的情况 
     console.log("console.log"+cpage);
-    console.info("这里切换请求的内容 加载数据 追加在下面");
+    console.info("这里切换请求的内容");
     $("#content").empty();
     $("#content").append('Some text'+cpage+"的内容")
 } 
@@ -105,11 +145,11 @@ function setpage()
                     outstr = outstr + "<span class='current'>"+count+"</span>"; 
                 } 
             } 
-            outstr = outstr + "<a href='javascript:void(0)' onclick='gotopage("+count+")'><img src='images/arrow_more.png' > </a>"; 
+            outstr = outstr + "<a href='javascript:void(0)' onclick='gotopage("+count+")'> next </a>"; 
         } 
         else if(parseInt((cpage-1)/10) == parseInt(totalpage/10)) 
         {     
-            outstr = outstr + "<a href='javascript:void(0)' onclick='gotopage("+(parseInt((cpage-1)/10)*10)+")'> <img src='images/arrow_left.png'></a>"; 
+            outstr = outstr + "<a href='javascript:void(0)' onclick='gotopage("+(parseInt((cpage-1)/10)*10)+")'>previous</a>"; 
             for (count=parseInt(totalpage/10)*10+1;count<=totalpage;count++) 
             {    if(count!=cpage) 
                 { 
@@ -121,7 +161,7 @@ function setpage()
         } 
         else 
         {     
-            outstr = outstr + "<a href='javascript:void(0)' onclick='gotopage("+(parseInt((cpage-1)/10)*10)+")'> <img src='images/arrow_left.png'></a>"; 
+            outstr = outstr + "<a href='javascript:void(0)' onclick='gotopage("+(parseInt((cpage-1)/10)*10)+")'>previous</a>"; 
             for (count=parseInt((cpage-1)/10)*10+1;count<=parseInt((cpage-1)/10)*10+10;count++) 
             {         
                 if(count!=cpage) 
@@ -131,9 +171,9 @@ function setpage()
                     outstr = outstr + "<span class='current'>"+count+"</span>"; 
                 } 
             } 
-            outstr = outstr + "<a href='javascript:void(0)' onclick='gotopage("+count+")'>  <img src='images/arrow_more.png' >  </a>"; 
+            outstr = outstr + "<a href='javascript:void(0)' onclick='gotopage("+count+")'> next </a>"; 
         } 
-    }    
+    }     
      document.getElementById("page").innerHTML = outstr;
    // document.getElementById("page").innerHTML = "<div id='setpage'><span id='info'>共"+totalpage+"页|第"+cpage+"页<\/span>" + outstr + "<\/div>"; 
     outstr = ""; 
@@ -141,5 +181,26 @@ function setpage()
 setpage();    //调用分页 
 
 </script> 
-</body> 
+
+
+
+<script type="text/javascript" src="jquery-2.1.1.js"></script>
+<!--<script src="jquery/jquery-2.1.1.js?t=<%=System.currentTimeMillis() %>" type="text/javascript"></script>-->
+<script type="text/javascript">
+$(document).ready(function(){
+  $("#mynav").hide();
+  $(".btn1").click(function(){
+  $("#mynav").slideUp(1000);
+  });
+  $(".btn2").click(function(){
+  $("#mynav").slideDown(1000);
+  });
+});
+</script>
+
+
+
+
+</body>
+
 </html>
